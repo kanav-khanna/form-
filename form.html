@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>registration form</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" >
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <style>
+      html, body {
+      min-height: 100%;
+      }
+      body, div, form, input, select, p { 
+      padding: 0;
+      margin: 0;
+      outline: none;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 16px;
+      color: white;
+      }
+      body {
+      background: url("/uploads/media/default/0001/01/b5edc1bad4dc8c20291c8394527cb2c5b43ee13c.jpeg") no-repeat center;
+      background-size: cover;
+      }
+      h1, h2 {
+      text-transform: uppercase;
+      font-weight: 400;
+      }
+      h2 {
+      margin: 0 0 0 8px;
+      }
+      .main-block {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      padding: 25px;
+      background: rgba(0, 0, 0, 0.9); 
+      }
+      .left-part, form {
+      padding: 25px;
+      }
+      .left-part {
+      text-align: center;
+      }
+      .fa-graduation-cap {
+      font-size: 72px;
+      }
+      form {
+      background: rgba(0, 0, 0, 0.7); 
+      }
+      .title {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      }
+      .info {
+      display: flex;
+      flex-direction: column;
+      }
+      
+      .password
+        {
+
+          
+        }
+
+      .btn-group p
+        { 
+            
+            
+            font-size: 25px;
+
+        }
+      .info i
+        {
+          align-items: right;
+          
+        }
+      input, select {
+      padding: 5px;
+      margin-bottom: 30px;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid #eee;
+      }
+      input::placeholder {
+      color: #eee;
+      }
+      option:focus {
+      border: none;
+      }
+      option {
+      background: black; 
+      border: none;
+      }
+      
+      .btn-item, button {
+      padding: 10px 5px;
+      margin-top: 20px;
+      border-radius: 5px; 
+      border: none;
+      background: #26a9e0; 
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 400;
+      color: #fff;
+      }
+      .btn-item {
+      display: inline-block;
+      margin: 20px 5px 0;
+      }
+      button {
+      width: 100%;
+      }
+      button:hover, .btn-item:hover {
+      background: #85d6de;
+      }
+      
+
+      @media (min-width: 568px) {
+      html, body {
+      height: 100%;
+      }
+      .main-block {
+      flex-direction: row;
+      height: calc(100% - 50px);
+      }
+      .left-part, form {
+      flex: 1;
+      height: auto;
+      }
+      }
+      
+    </style>
+  </head>
+  <body>
+    <div class="main-block">
+      <div class="left-part">
+        <i class="fas fa-graduation-cap"></i>
+        <h1>Sign Up Form</h1>
+        <p></p>
+        <div class="btn-group">
+        
+        <p><span id='message'></span></p>
+        <p><span id='namedisp'></span><span id='displayname'></span></p>
+        <p> <span id='emaildisp'> </span><span id='displayemail'></span></p>
+        <p> <span id='phonedisp'> </span><span id='displayphone'></span></p>
+        </div>
+      </div>
+      <form id="frm1" target="_self" action="/action_page.php">
+        <div class="title">
+          <i class="fas fa-pencil-alt"></i> 
+          <h2>Register here</h2>
+        </div>
+        
+        <div class="info">
+        
+          <input class="fname" type="text" name="message"  id="user_input" placeholder="Full name">
+          <input type="text" name="name" placeholder="Email" id="email" >
+          <input type="text" name="name" placeholder="Phone number" id="phone">
+           <!-- <input type="password" name="name" placeholder="Password"> -->
+           <input type="password"  class ="password" id="password-field" name="name" placeholder="Password" >
+           <i id="pass-status" class="fa fa-eye" aria-hidden="true" onClick="viewPassword()"></i>
+           
+          
+        </div>
+        
+        
+        <button onclick="showInput(); return false" type="submit" target="_self">Submit</button>
+      </form>
+    </div>
+      
+
+<script language="JavaScript">
+       function viewPassword()
+{
+  var passwordInput = document.getElementById('password-field');
+  var passStatus = document.getElementById('pass-status');
+ 
+  if (passwordInput.type == 'password'){
+    passwordInput.type='text';
+    passStatus.className='fa fa-eye-slash';
+    
+  }
+  else{
+    passwordInput.type='password';
+    passStatus.className='fa fa-eye';
+  }
+}
+  function showInput() {
+    var a = "The Information You Have Entered Is - "
+    var b = "Name- "
+    var c = "Email- "
+    var d = "Phone- "
+
+        document.getElementById('message').innerHTML = a;
+        document.getElementById('namedisp').innerHTML = b;
+        document.getElementById('emaildisp').innerHTML = c;
+        document.getElementById('phonedisp').innerHTML = d;
+        document.getElementById('displayname').innerHTML  =  document.getElementById("user_input").value;
+        document.getElementById('displayemail').innerHTML = document.getElementById("email").value;
+        document.getElementById('displayphone').innerHTML = document.getElementById("phone").value;
+        
+    }
+    
+
+      </script>
+  </body>
+</html>
